@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Compare Tool</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
+
+<h1 class="text-3xl font-bold mb-4 text-indigo-700">🖼️ Figma vs Mobile Display Comparison</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-6">
+  <div class="text-center">
+    <label class="font-semibold">Upload Figma Image</label><br>
+    <input type="file" id="designUpload" accept="image/png, image/jpeg" class="mt-2"/>
+    <img id="designPreview" class="mt-2 mx-auto max-h-64 border rounded shadow" />
+  </div>
+  <div class="text-center">
+    <label class="font-semibold">Upload Mobile Display Screenshot</label><br>
+    <input type="file" id="uiUpload" accept="image/png, image/jpeg" class="mt-2"/>
+    <img id="uiPreview" class="mt-2 mx-auto max-h-64 border rounded shadow" />
+  </div>
+  <div class="text-center">
+    <label class="font-semibold">Diff Result</label><br>
+    <canvas id="diffCanvas" class="mt-2 mx-auto border rounded shadow"></canvas>
+  </div>
+</div>
+
+<div class="flex">
+  <button onclick="compareImages()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 shadow">
+    🔍 Compare Images
+  </button>
+  <button onclick="downloadDiff()" class="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 shadow">
+    ⬇️ Download Diff
+  </button>
+</div>
+
+<p id="resultText" class="mt-4 text-lg font-medium text-gray-700"></p>
+
+<script src="https://unpkg.com/resemblejs@2.10.1/resemble.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
