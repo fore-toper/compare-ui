@@ -17,4 +17,4 @@ A simple visual regression comparison tool to compare UI screenshots with design
 
 ```bash
 git clone https://github.com/fore-toper/compare-ui.git
-cd visual-ui-compare
+cd compare-ui
